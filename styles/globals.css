@@ -48,4 +48,29 @@
   .textarea {
     @apply w-full h-[180px] p-6 capitalize rounded-lg resize-none;
   }
+  .checkbox {
+    @apply w-[20px] h-[20px] border border-white/40 rounded-md appearance-none cursor-pointer transition-all duration-300 ease-in-out bg-transparent;
+  
+    /* Добавляем плавную анимацию фона */
+    background-color: transparent;
+  }
+  
+  .checkbox:checked {
+    /* Когда чекбокс активен */
+    @apply bg-accent/40 border-accent/20;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .checkbox:hover {
+    /* Эффект при наведении */
+    @apply border-accent/40;
+  }
+  
+  .checkbox:focus {
+    /* Стили для фокуса */
+    @apply outline-none ring-2 ring-accent ring-opacity-50;
+  }
 }
