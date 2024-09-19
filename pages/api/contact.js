@@ -1,6 +1,6 @@
 import TelegramBot from 'node-telegram-bot-api'
 
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true })
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN)
 const chatId = process.env.TELEGRAM_CHAT_ID
 
 /**
@@ -57,12 +57,16 @@ export default async function handler(req, res) {
 
             // Формируем сообщение для отправки в Telegram
             const telegramMessage = `
-                *Новое сообщение Портфолио!*
-                
-                *Имя:* ${name}
-                *Email:* ${email}
-                *Тема:* ${subject}
-                *Сообщение:* ${message}
+                *📩 Новое сообщение из портфолио!*
+
+                👤 *Имя:* ${name}
+                ✉️ *Email:* ${email}
+                🗂️ *Тема:* ${subject}
+
+                💬 *Сообщение:*
+                ${message}
+
+                ---
             `
 
             // Отправляем сообщение в Telegram
