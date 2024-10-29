@@ -1,42 +1,50 @@
 // aboutData.js
-import { FaCss3, FaFigma, FaHtml5, FaJs, FaReact, FaWordpress } from 'react-icons/fa'
-import { SiAdobephotoshop, SiAdobexd, SiFramer, SiNextdotjs } from 'react-icons/si'
+import { FaCss3, FaFigma, FaHtml5, FaJs, FaReact, FaWordpress, FaProjectDiagram, FaGithub } from 'react-icons/fa'
+import { SiNextdotjs, SiRabbitmq, SiPostgresql } from 'react-icons/si'
+import { MdHttp } from "react-icons/md"
 
 export const aboutData = [
 	{
-		title: 'skills',
+		title: 'Скилы',
 		info: [
 			{
-				title: 'Web Development',
-				icons: [FaHtml5, FaCss3, FaJs, FaReact, SiNextdotjs, SiFramer, FaWordpress],
+				title: '1С Разработка',
+				icons: ["/1c_icon.png", FaProjectDiagram, FaGithub, SiRabbitmq, SiPostgresql, MdHttp],
 			},
 			{
-				title: 'UI/UX Design',
-				icons: [FaFigma, SiAdobexd, SiAdobephotoshop],
+				title: 'Веб-разработка',
+				icons: [FaHtml5, FaCss3, FaJs, FaReact, SiNextdotjs],
+			},
+			{
+				title: 'UI/UX Дизайн',
+				icons: [FaFigma,],
 			},
 		],
 	},
 	{
-		title: 'awards',
+		title: 'достижения',
 		info: [
-			{ title: 'Webby Awards - Honoree', stage: '2011 - 2012' },
-			{ title: 'Adobe Design Achievement Awards - Finalist', stage: '2009 - 2010' },
+			{ title: 'Разработка системы складской логистики для оператора 3PL на адресном складе класса "А"', stage: '2003-2024', icons: ["/1c_icon.png",] },
+			{ title: 'Интеграция и запуск различных WMS систем для таких клиентов, как: Nestle, Pepsico, Rostelecom', stage: '2001 - 2024' },
+			{ title: 'Спец. конф. "Учет мат. стола"', stage: '2001 - 2002' },
+			{ title: 'Спец. конф. для зернового комбината', stage: '2001 - 2002' },
 		],
 	},
 	{
-		title: 'experience',
+		title: 'опыт',
 		info: [
-			{ title: 'UX/UI Designer - XYZ Company', stage: '2012 - 2023' },
-			{ title: 'Web Developer - ABC Agency', stage: '2010 - 2012' },
-			{ title: 'Intern - DEF Corporation', stage: '2008 - 2010' },
+			{ title: 'АО "Легпромресурс"", г. Саратов', stage: '2023 г.' },
+			{ title: 'ООО "ИТА-РУС", г. Санкт-Петербург', stage: '2020 г.' },
+			{ title: 'ООО "Лидер-С", г.Саратов', stage: '2003 г.' },
+			{ title: 'ООО "Софит-Компьютерные системы". г.Саратов', stage: '2001 г.' },
 		],
 	},
 	{
-		title: 'credentials',
+		title: 'квалификация',
 		info: [
-			{ title: 'Web Development - ABC University, LA, CA', stage: '2011' },
-			{ title: 'Computer Science Diploma - AV Technical Institute', stage: '2009' },
-			{ title: 'Certified Graphic Designer - ABC Institute, Los Angeles, CA', stage: '2006' },
+			{ title: 'Автоматизация малого и среднего производственного предприятия в "1С Управление нашей фирмой"', stage: '2024 г.' },
+			{ title: 'python backend developer, Яндекс, г.Москва', stage: '2022 г.' },
+			{ title: 'Саратовский государственный университет им. Н.Г. Чернышевского, Мех-Мат, г. Саратов', stage: '2001 г.' },
 		],
 	},
 ]

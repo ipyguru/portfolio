@@ -1,7 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
 import Socials from '../components/Socials'
+import TextLogo from './TextLogo'
 
 const Header = () => {
   return (
@@ -9,9 +7,7 @@ const Header = () => {
       <div className='container mx-auto'>
         <div className='flex flex-col lg:flex-row justify-between items-center gap-y-6 py-8'>
           {/* logo */}
-          <Link href={'/'}>
-            <Image src={'/logo.svg'} width={220} height={48} alt='logo' priority={true} />
-          </Link>
+          <TextLogo />
           {/* socials */}
           <Socials />
         </div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
+import { useSpring, animated } from 'react-spring'
 
 import Avatar from '../../components/Avatar'
 import Circles from '../../components/Circles'
@@ -7,6 +8,7 @@ import { aboutData } from '../../data/aboutData' // Импорт данных
 
 import CountUp from 'react-countup'
 import { fadeIn } from '../../variants'
+import { FaChevronDown } from 'react-icons/fa'
 
 // Главный компонент страницы "Обо мне"
 const About = () => {
@@ -18,14 +20,14 @@ const About = () => {
   }
 
   const statistics = [
-    { label: 'Years of experience', count: 10 },
-    { label: 'Satisfied clients', count: 250 },
-    { label: 'Finished projects', count: 650 },
-    { label: 'Winning awards', count: 6 }
+    { label: 'Лет опыта', count: 20 },
+    { label: 'Довольных работодателей', count: 4 },
+    { label: 'Завершённых проектов', count: 100 },
+    { label: 'Полученных наград', count: 3 }
   ]
 
   return (
-    <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className="h-full bg-primary/30 py-32 text-center xl:text-left ">
       <Circles />
       <AvatarSection />
       <MainContent
@@ -40,19 +42,19 @@ const About = () => {
 // Компонент для отображения аватара
 const AvatarSection = () => (
   <motion.div
-    className="hidden xl:flex absolute bottom-0 -left-[170px]"
+    className="hidden xl:flex absolute bottom-0 -left-[240px]"
     variants={fadeIn('right', 0.2)}
     initial="hidden"
     animate="show"
     exit="hidden"
   >
-    <Avatar />
+    <Avatar opacity={0.75} />
   </motion.div>
 )
 
 // Основной контент страницы
 const MainContent = ({ statistics, activeIndex, setActiveIndex }) => (
-  <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+  <div className="container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6 translate-z-0">
     <TextSection />
     <InfoSection
       statistics={statistics}
@@ -63,32 +65,47 @@ const MainContent = ({ statistics, activeIndex, setActiveIndex }) => (
 )
 
 // Раздел с текстовым содержимым
-const TextSection = () => (
-  <div className="flex-1 flex flex-col justify-center">
-    <motion.h2
-      className="h2"
-      variants={fadeIn('right', 0.2)}
-      initial="hidden"
-      animate="show"
-      exit="hidden"
-    >
-      Captivating <span className="text-accent">stories</span> birth magnificent designs.
-    </motion.h2>
-    <motion.p
-      className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
-      variants={fadeIn('right', 0.4)}
-      initial="hidden"
-      animate="show"
-      exit="hidden"
-    >
-      10 years ago, I began freelancing as a developer. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ipsum corporis, voluptatem inventore eum quibusdam magnam dolorum possimus id consequatur minus laudantium earum, architecto excepturi provident ea quod libero quia!
-    </motion.p>
-  </div>
-)
+const TextSection = () => {
+  const [isScrolling, setIsScrolling] = useState(false)
+  const scrollProps = useSpring({
+    transform: isScrolling ? 'translateY(-10px)' : 'translateY(0px)',
+    config: { tension: 100, friction: 10 },
+  })
+
+  return (
+    <div className="flex-1 flex flex-col justify-center relative" onMouseEnter={() => setIsScrolling(true)} onMouseLeave={() => setIsScrolling(false)}>
+      <motion.h2
+        className="h2"
+        variants={fadeIn('right', 0.2)}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+      >
+        Увлекательные <span className="text-accent">истории</span> рождают великолепные решения.
+      </motion.h2>
+      {/* Применение анимации к тексту */}
+      <animated.p
+        style={scrollProps} // Применение анимации
+        className="w-full mb-6 xl:mb-12 px-2 xl:px-0 text-base md:text-lg lg:text-xl overflow-auto h-48 xl:h-[260px]"
+      >
+        Более 20 лет назад, когда я начинал программировать на 1С, я не предполагал, насколько это изменит мою жизнь. С тех пор я накопил обширный опыт в разработке и автоматизации бизнес-процессов. Моя цель — создавать эффективные решения, которые помогают клиентам оптимизировать их работу. Я работал над проектами различной сложности и всегда стремлюсь находить уникальные подходы к каждой задаче.
+
+        <span className='block mb-4 md:hidden'>Технологии — это моя страсть, и я готов помочь вам реализовать ваши идеи.</span>
+        <span className='block mb-4 hidden md:block'>Я верю в силу технологий и их способность преобразовывать идеи в реальность. Каждый проект для меня — это возможность не только применить свои знания, но и внести вклад в развитие бизнеса клиентов. Моя страсть к программированию и стремление к совершенству помогают мне находить уникальные решения для каждого из моих клиентов.</span>
+        <span className='block mb-4 hidden md:block'>На этой странице вы можете узнать больше о моем опыте, проектах и подходе к работе. Я всегда открыт для новых вызовов и готов помочь вам реализовать ваши идеи.</span>
+      </animated.p>
+
+      {/* Индикатор прокрутки */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -mb-2 animate-bounce opacity-35">
+        <FaChevronDown className="text-2xl text-white" />
+      </div>
+    </div>
+  )
+}
 
 // Раздел с информацией и статистикой
 const InfoSection = ({ statistics, activeIndex, setActiveIndex }) => (
-  <div className="flex flex-col w-full xl:max-w-[48%] h-[480px]">
+  <div className="flex flex-col w-full xl:max-w-[48%] h-[480px] mt-4">
     <Tabs
       data={aboutData}
       activeIndex={activeIndex}
@@ -101,7 +118,7 @@ const InfoSection = ({ statistics, activeIndex, setActiveIndex }) => (
 
 // Компонент для отображения вкладок
 const Tabs = ({ data, activeIndex, onTabClick }) => (
-  <div className="flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+  <div className="flex gap-x-4 xl:gap-x-14 mx-auto xl:mx-0 mb-4">
     {data.map((item, index) => (
       <Tab
         key={index}
@@ -152,7 +169,7 @@ const Statistic = ({ count, label }) => (
 
 // Компонент для отображения информации
 const InfoDetails = ({ data }) => (
-  <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
+  <div className="py-0 xl:py-0 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
     {data.info.map((item, index) => (
       <InfoItem
         key={index}
@@ -166,19 +183,24 @@ const InfoDetails = ({ data }) => (
 
 // Компонент для отображения одной информационной записи
 const InfoItem = ({ title, stage, icons }) => (
-  <div className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60">
+  <div className="flex-1 flex flex-col md:flex-row max-w-max gap-x-2 items-center text-white/60 text-sm">
     <div className="font-light">{title}</div>
+    <div className="flex gap-x-4">
+      {icons?.map((Icon, index) => {
+        // Если Icon - это компонент React, отрендерить его
+        if (typeof Icon === 'function') {
+          return <Icon key={index} className="text-2xl text-white" />
+        }
+        // Если это строка, отрендерить как картинку
+        return <img key={index} src={Icon} alt="icon" className="w-6 h-6" />
+      })}
+    </div>
     {stage && (
       <>
         <div className="hidden md:flex">-</div>
         <div>{stage}</div>
       </>
     )}
-    <div className="flex gap-x-4">
-      {icons?.map((Icon, index) => (
-        <Icon key={index} className="text-2xl text-white" />
-      ))}
-    </div>
   </div>
 )
 

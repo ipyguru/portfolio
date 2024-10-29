@@ -15,8 +15,8 @@ const Home = () => (
   <div className="bg-primary/60 h-full relative">
     <BackgroundOverlay>
       <ContentContainer>
-        <Title text="Transforming ideas Into Digital reality" />
-        <Subtitle text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia necessitatibus quasi odio? Facilis neque aspernatur fugit eveniet, ex sed accusamus at mollitia. Animi repellat nesciunt officia dolor tempore incidunt!" />
+        <Title text="Преобразование идей в цифровую реальность" />
+        <Subtitle text="Давайте вместе превратим ваши идеи в впечатляющие цифровые проекты с помощью решений 1С. Я специализируюсь на разработке уникальных приложений и автоматизации бизнес-процессов, что поможет оптимизировать вашу работу и достичь новых высот. В каждом проекте я вкладываю свою страсть и внимание к деталям, чтобы обеспечить вам конкурентное преимущество на рынке!" />
         <ButtonGroup />
       </ContentContainer>
     </BackgroundOverlay>
@@ -32,7 +32,7 @@ const BackgroundOverlay = ({ children }) => (
 )
 
 const ContentContainer = ({ children }) => (
-  <div className="container mx-auto h-full flex flex-col justify-center text-center xl:text-left xl:pt-40">
+  <div className="container mx-auto h-full flex flex-col justify-center text-center xl:text-left xl:pt-40 pt-20">
     {children}
   </div>
 )
@@ -56,7 +56,7 @@ const Subtitle = ({ text }) => (
     initial="hidden"
     animate="show"
     exit="hidden"
-    className="mb-10 xl:mb-16 max-w-sm xl:max-w-xl"
+    className="mb-10 xl:mb-16 max-w-sm xl:max-w-xl text-sm sm:text-base"
   >
     {text}
   </motion.p>

@@ -1,11 +1,6 @@
 import Link from 'next/link'
-import { RiGithubLine, RiVkLine, RiYoutubeLine } from 'react-icons/ri'
+import { socialLinks } from '../data/socialLinks'
 
-const socialLinks = [
-  { href: 'https://www.youtube.com', icon: RiYoutubeLine },
-  { href: 'https://vk.com', icon: RiVkLine },
-  { href: 'https://github.com/ipyguru', icon: RiGithubLine },
-]
 
 const Socials = () => {
   return (
