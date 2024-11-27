@@ -2,23 +2,16 @@
 export const testimonialData = [
   {
     image: '/t-avt-1.png',
-    name: 'Anne Smith',
-    position: 'Customer',
+    name: 'Виктория М.',
+    position: 'Руководитель проектов Ростелеком',
     message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
+      'Владимир, чувствуется ваш профессионализм, из нашего опыта, это самая быстрая интеграция 👍',
   },
   {
     image: '/t-avt-2.png',
-    name: 'Jane Doe',
-    position: 'Customer',
+    name: 'Вачаган Г.',
+    position: 'Генеральный директор Транссервис, ООО',
     message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
-  },
-  {
-    image: '/t-avt-3.png',
-    name: 'Jhon Doe',
-    position: 'Customer',
-    message:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum expedita odit beatae, cupiditate saepe quam officia aut placeat quas neque!',
+      'Спасибо Владимир за нашу историю 👍 Отличная работа. За мной ты знаешь ЧТО!',
   },
 ]

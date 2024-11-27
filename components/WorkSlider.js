@@ -28,7 +28,7 @@ const WorkSliderItem = ({ slide }) => {
             href={image.href}
             target="_blank"
             rel="noopener noreferrer"
-            className='flex items-center gap-x-0 text-[13px] tracking-[0.2em]'
+            className='flex items-center text-center gap-x-0 text-[13px] tracking-[0.2em]'
           >
             <div className='delay-100 uppercase'>{image.title}</div>
             <div className='translate-y-[500%] group-hover:translate-y-0 transition-transform duration-300 delay-150'>.</div>
